@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TP3_A1.Models.Despesa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Despesas</h2>
+
+<p>
+    @Html.ActionLink("Veja os Tipos de Despesa", "Index", "TipoDespesas")
+    @Html.ActionLink("Crie um Tipo de Despesa", "Create", "TipoDespesas")
+
+</p>
+<p>
+    @Html.ActionLink("Cadastre uma Despesa", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoDespesa.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Veiculo.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observacoes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoDespesa.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Veiculo.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observacoes)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.DespesaId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.DespesaId }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.DespesaId })
+        </td>
+    </tr>
+}
+
+</table>

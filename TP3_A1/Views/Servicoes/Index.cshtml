@@ -1,0 +1,82 @@
+﻿@model IEnumerable<TP3_A1.Models.Servico>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Serviços</h2>
+
+<p>
+    @Html.ActionLink("Veja as Categorias de Serviço", "Index", "CategoriaServicoes")
+    @Html.ActionLink("Crie uma Categoria de Serviço", "Create", "CategoriaServicoes")
+
+</p>
+<p>
+    @Html.ActionLink("Cadastre um Serviço", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Oficina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Veiculo.Modelo)
+        </th>
+        <th>
+            Categorias
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observacoes)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oficina.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Veiculo.Modelo)
+            </td>
+
+            <!-- Coluna para exibir as categorias associadas -->
+            <td>
+                @if (item.ServicoCategorias != null && item.ServicoCategorias.Any())
+                {
+                    foreach (var categoria in item.ServicoCategorias)
+                    {
+                        <span>@categoria.CategoriaServico.Nome</span><br />
+                    }
+                }
+                else
+                {
+                    <span>Nenhuma categoria associada</span>
+                }
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacoes)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.ServicoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.ServicoId }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = item.ServicoId })
+            </td>
+        </tr>
+    }
+
+</table>

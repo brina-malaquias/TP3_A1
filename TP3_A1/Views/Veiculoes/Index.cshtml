@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TP3_A1.Models.Veiculo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Veiculos</h2>
+
+<p>
+    @Html.ActionLink("Cadastre um Veiculo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ano)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quilometragem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observacoes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ano)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quilometragem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observacoes)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.VeiculoId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.VeiculoId }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.VeiculoId })
+        </td>
+    </tr>
+}
+
+</table>

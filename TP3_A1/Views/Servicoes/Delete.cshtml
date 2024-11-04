@@ -1,0 +1,74 @@
+﻿@model TP3_A1.Models.Servico
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Apagar</h2>
+
+<div>
+    <h4>Serviço</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Oficina)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Oficina.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Veiculo.Modelo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Veiculo.Modelo)
+        </dd>
+
+        <dt>
+            Categorias
+        </dt>
+        <dd>
+            @if (Model.ServicoCategorias != null && Model.ServicoCategorias.Any())
+            {
+                foreach (var categoria in Model.ServicoCategorias)
+                {
+                    <span>@categoria.CategoriaServico.Nome</span><br />
+                }
+            }
+            else
+            {
+                <span>Nenhuma categoria associada.</span>
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacoes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observacoes)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Apagar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar para lista", "Index")
+        </div>
+    }
+</div>

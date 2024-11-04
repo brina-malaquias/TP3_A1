@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+@model TP3_A1.Models.DashboardViewModel
+
+<h3>Veículos</h3>
+@if (Model.Veiculos.Any())
+{
+    <ul>
+        @foreach (var veiculo in Model.Veiculos)
+        {
+            <li>@veiculo.Marca @veiculo.Modelo - @veiculo.Placa</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Você ainda não possui veículos cadastrados.</p>
+}
+
+<h3>Serviços</h3>
+@if (Model.Servicos.Any())
+{
+    <ul>
+        @foreach (var servico in Model.Servicos)
+        {
+            <li>@servico.ServicoCategorias - @servico.Data.ToString("dd/MM/yyyy")</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Você ainda não possui serviços cadastrados.</p>
+}
+
+<h3>Despesas</h3>
+@if (Model.Despesas.Any())
+{
+    <ul>
+        @foreach (var servico in Model.Despesas)
+        {
+            <li>@servico.DespesaId - @servico.Data.ToString("dd/MM/yyyy")</li>
+        }
+    </ul>
+}
+else
+{
+    <p>Você ainda não possui despesas cadastradas.</p>
+}
