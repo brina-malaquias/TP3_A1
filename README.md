@@ -87,6 +87,5 @@ A aplicação possui autenticação via Google e Facebook para controle de acess
 ## Como Rodar a Aplicação
 
 1. Clone o repositório: `git clone https://github.com/brina-malaquias/TP3_A1.git`
-2. Configure o banco de dados no arquivo `Web.config`
-3. Execute as migrações do Entity Framework: `dotnet ef database update`
-4. Inicie a aplicação: `dotnet run`
+2. Configure o banco de dados no arquivo Web.config `Data Source=DESKTOP-HR9L9GB;Initial Catalog=TP3_A1;Integrated Security=True;Encrypt=False`
+3. Instale as dependências e inicie a aplicação: `dotnet build` `dotnet run`
