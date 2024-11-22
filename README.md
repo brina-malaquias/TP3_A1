@@ -44,6 +44,7 @@ Exibe a interface para o usuário interagir com as funcionalidades da aplicaçã
 - **JavaScript**: Aumenta a interatividade da interface.
 - **C#**: Linguagem utilizada para construir o backend e a lógica do sistema.
 - **Entity Framework**: ORM para interação com o banco de dados.
+- **Unity**: para interação do HomerController com o DbContext.
 - **SQL Server**: Banco de dados utilizado na aplicação.
 
 ## Estrutura de Telas
